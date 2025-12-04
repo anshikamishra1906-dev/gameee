@@ -3,7 +3,6 @@
 #include <windows.h>
 #include <stdlib.h>
 #include <time.h>
-#include <mmsystem.h>
 
 /* Clear screen without flicker */
 void clear_screen_fast() {
@@ -23,8 +22,6 @@ int playGame() {
     int step2 = -5;                   // Obstacle 2 starts higher
     int lane1 = rand() % 3;           // Obstacle 1 lane
     int lane2 = rand() % 3;           // Obstacle 2 lane
-
-    PlaySound(TEXT("bg.wav"), NULL, SND_ASYNC | SND_LOOP); // background music
 
     while (1) {
 
@@ -50,7 +47,6 @@ int playGame() {
 
             // Row has BOTH obstacles considered
             if (row == step1 && row == step2 && lane1 == lane2) {
-                // If they randomly overlap in same lane
                 if (lane1 == 0)  printf("| XX        |\n");
                 if (lane1 == 1)  printf("|    XX     |\n");
                 if (lane1 == 2)  printf("|        XX |\n");
@@ -79,10 +75,7 @@ int playGame() {
         /* COLLISION CHECK WITH OBSTACLE 1 */
         if (step1 == 10 && x == lane1) {
 
-            PlaySound(NULL, NULL, 0);
-            PlaySound(TEXT("impact.wav"), NULL, SND_ASYNC);
             Sleep(800);
-
             lives--;
 
             if (lives <= 0) {
@@ -97,10 +90,7 @@ int playGame() {
         /* COLLISION CHECK WITH OBSTACLE 2 */
         if (step2 == 10 && x == lane2) {
 
-            PlaySound(NULL, NULL, 0);
-            PlaySound(TEXT("impact.wav"), NULL, SND_ASYNC);
             Sleep(800);
-
             lives--;
 
             if (lives <= 0) {
@@ -112,7 +102,7 @@ int playGame() {
             lane2 = rand() % 3;
         }
 
-        Sleep(120); // same speed
+        Sleep(120);
 
         /* UPDATE MOVEMENT */
         step1++;
