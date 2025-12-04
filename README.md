@@ -72,18 +72,6 @@ If both pass safely, the score increases twice.
 
 No arrays, no complex logic—just two separate obstacle systems kept simple.
 
-6. Background Music and Crash Sound
-
-What was added:
-The background music and impact sound from the original game were kept exactly the same.
-
-Why it was kept:
-Because you asked to retain the sound functionality just like the original code.
-
-How it works:
-Background music loops continuously during play.
-When the player crashes, the background music stops, the crash sound plays, and then the music resumes afterward.
-
 Summary of Features Added (Four Beginner-Friendly Additions)
 
 Score system
@@ -95,7 +83,5 @@ Start menu
 Restart option
 
 Multiple obstacles (extra simple implementation)
-
-Original sound kept as in the first version
 
 No advanced features like difficulty scaling, file handling, or shooting actions were added, to keep the game beginner-friendly.
